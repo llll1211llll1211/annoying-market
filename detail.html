@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>귀찮음 거래소 - 상세보기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="detail-container">
+        <div class="write-header">
+            <span id="back-btn">&larr;</span>
+            <h2 id="detail-title"></h2>
+        </div>
+
+        <p class="post-meta" id="detail-meta"></p>
+
+        <hr>
+
+        <p id="detail-content"></p>
+
+        <hr>
+
+        <div id="comment-list">
+            <!-- 댓글들이 여기에 JS로 그려짐 -->
+        </div>
+
+        <div class="comment-input-area">
+            <input type="text" id="comment-input" placeholder="댓글을 입력하세요">
+            <button id="comment-submit-btn">등록</button>
+        </div>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="detail.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,301 @@
+:root {
+    --bg-color: #f5f5f5;
+    --point-color: #337DE5;
+    --point-color-hover: #2c6bc7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Malgun Gothic', sans-serif;
+    background-color: var(--bg-color);
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 40px;
+    width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#nickname-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+#start-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--point-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#start-btn:hover {
+    background-color: var(--point-color-hover);
+}
+
+.hint {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #999;
+    line-height: 1.6;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 8px;
+    padding: 16px 24px;
+    flex-wrap: wrap;
+}
+
+.filter-bar select,
+.filter-bar input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+#write-btn {
+    margin-left: auto;
+    padding: 8px 16px;
+    background-color: var(--point-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#write-btn:hover {
+    background-color: var(--point-color-hover);
+}
+
+#post-list {
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.post-card {
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.post-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.post-meta {
+    font-size: 13px;
+    color: #888;
+}
+
+.accept-btn,
+.reject-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: white;
+    cursor: pointer;
+    margin-left: 6px;
+}
+
+.accept-btn:hover {
+    background-color: var(--point-color);
+    color: white;
+}
+
+.reject-btn:hover {
+    background-color: #dc2626;
+    color: white;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status-accepted {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.status-rejected {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.edit-link {
+    font-size: 13px;
+    color: #888;
+    text-decoration: underline;
+}
+
+.write-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.write-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+#back-btn {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.write-container label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.write-container input,
+.write-container textarea,
+.write-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+.write-container textarea {
+    height: 100px;
+    resize: none;
+}
+
+.write-selects {
+    display: flex;
+    gap: 12px;
+}
+
+.write-selects>div {
+    flex: 1;
+}
+
+#submit-btn {
+    width: 100%;
+    margin-top: 24px;
+    padding: 12px;
+    background-color: var(--point-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#submit-btn:hover {
+    background-color: var(--point-color-hover);
+}
+
+.detail-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.detail-container hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 16px 0;
+}
+
+#detail-content {
+    line-height: 1.6;
+    white-space: pre-wrap;
+    /* 사용자가 입력한 줄바꿈을 그대로 화면에 보여줌 */
+}
+
+.comment-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.comment-author {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.comment-content {
+    font-size: 14px;
+    color: #333;
+}
+
+.comment-input-area {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.comment-input-area input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.comment-input-area button {
+    padding: 10px 16px;
+    background-color: var(--point-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}

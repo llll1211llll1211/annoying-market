@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>귀찮음 거래소 - 글쓰기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="write-container">
+        <div class="write-header">
+            <span id="back-btn">&larr;</span>
+            <h2>글쓰기</h2>
+        </div>
+
+        <label>제목</label>
+        <input type="text" id="title-input" placeholder="귀찮은 일을 부탁해보세요">
+
+        <label>본문</label>
+        <textarea id="content-input" placeholder="귀찮은 일을 부탁해보세요"></textarea>
+
+        <div class="write-selects">
+            <div>
+                <label>위치</label>
+                <select id="region-input">
+                    <option value="본관동">본관동</option>
+                    <option value="별관동">별관동</option>
+                    <option value="1공학관">1공학관</option>
+                    <option value="2공학관">2공학관</option>
+                    <option value="3공학관">3공학관</option>
+                    <option value="담헌실학관">담헌실학관</option>
+                    <option value="인문경영관">인문경영관</option>
+                    <option value="다산정보관">다산정보관</option>
+                    <option value="미래학습관">미래학습관</option>
+                    <option value="복지관">복지관</option>
+                    <option value="학생회관">학생회관</option>
+                    <option value="정문">정문</option>
+                    <option value="후문">후문</option>
+                </select>
+            </div>
+
+            <div>
+                <label>카테고리</label>
+                <select id="category-input">
+                    <option value="조립/설치">조립/설치</option>
+                    <option value="청소/정리">청소/정리</option>
+                    <option value="배달/장보기">배달/장보기</option>
+                    <option value="돌봄/동행">돌봄/동행</option>
+                    <option value="심부름/대행">심부름/대행</option>
+                </select>
+            </div>
+        </div>
+
+        <label>마감일</label>
+        <input type="date" id="deadline-input">
+
+        <button id="submit-btn">등록하기</button>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="write.js"></script>
+</body>
+
+</html>
