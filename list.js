@@ -9,11 +9,13 @@ function renderPosts(postsToShow) {
   listContainer.innerHTML = '';
 
   postsToShow.forEach(function (post) {
-    const card = document.createElement('div');
-    card.className = 'post-card';
+  const card = document.createElement('div');
+  card.className = 'post-card';
 
-    const isMyPost = post.author === myNickname;
-    let actionHTML = '';
+  const isMyPost = post.author === myNickname;
+  const rejectedIds = JSON.parse(localStorage.getItem('rejectedPosts') || '[]');
+  const alreadyRejected = rejectedIds.includes(post.id);
+  let actionHTML = '';
 
     if (isMyPost) {
   // 본인 글: 상태 표시 + 수정/삭제를 같이 보여줌
