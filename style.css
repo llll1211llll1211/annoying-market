@@ -383,3 +383,13 @@ body {
         box-sizing: border-box;
     }
 }
+
+.reject-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.reject-btn:disabled:hover {
+  background-color: white;
+  color: inherit;
+}

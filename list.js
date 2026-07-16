@@ -21,10 +21,13 @@ function renderPosts(postsToShow) {
         <span class="edit-link" data-action="delete" data-id="${post.id}">삭제</span>
       `;
     } else if (post.status === '대기중') {
-      actionHTML = `
-        <button class="accept-btn" data-id="${post.id}">승낙</button>
-        <button class="reject-btn" data-id="${post.id}">거절 ${post.rejectCount}</button>
-      `;
+  const rejectedIds = JSON.parse(localStorage.getItem('rejectedPosts') || '[]');
+  const alreadyRejected = rejectedIds.includes(post.id);
+
+  actionHTML = `
+    <button class="accept-btn" data-id="${post.id}">승낙</button>
+    <button class="reject-btn" data-id="${post.id}" ${alreadyRejected ? 'disabled' : ''}>거절 ${post.rejectCount}</button>
+  `;
     } else if (post.status === '승낙됨') {
       actionHTML = `<span class="status-badge status-accepted">승낙됨</span>`;
     } else if (post.status === '거절됨') {
@@ -87,11 +90,18 @@ postListContainer.addEventListener('click', async function (event) {
   }
 
   if (clickedElement.classList.contains('reject-btn')) {
-    const postId = Number(clickedElement.dataset.id);
-    await rejectPost(postId);
-    await refreshPosts();
-    return;
-  }
+  const postId = Number(clickedElement.dataset.id);
+
+  await rejectPost(postId);
+
+  // 거절한 글 id를 브라우저에 기록해두기
+  const rejectedIds = JSON.parse(localStorage.getItem('rejectedPosts') || '[]');
+  rejectedIds.push(postId);
+  localStorage.setItem('rejectedPosts', JSON.stringify(rejectedIds));
+
+  await refreshPosts();
+  return;
+}
 
   if (clickedElement.dataset.action === 'edit') {
     const postId = Number(clickedElement.dataset.id);
