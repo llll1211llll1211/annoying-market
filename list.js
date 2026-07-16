@@ -16,23 +16,36 @@ function renderPosts(postsToShow) {
     let actionHTML = '';
 
     if (isMyPost) {
-      actionHTML = `
+  // 본인 글: 상태 표시 + 수정/삭제를 같이 보여줌
+  let statusHTML = '';
+
+  if (post.status === '대기중') {
+    statusHTML = `<span class="status-badge status-pending">대기중 (거절 ${post.rejectCount})</span>`;
+  } else if (post.status === '승낙됨') {
+    statusHTML = `<span class="status-badge status-accepted">승낙됨 (${post.acceptedBy})</span>`;
+  } else if (post.status === '거절됨') {
+    statusHTML = `<span class="status-badge status-rejected">거절됨</span>`;
+  }
+
+  actionHTML = `
+    <div class="my-post-action">
+      ${statusHTML}
+      <div class="edit-delete-row">
         <span class="edit-link" data-action="edit" data-id="${post.id}">수정</span>
         <span class="edit-link" data-action="delete" data-id="${post.id}">삭제</span>
-      `;
-    } else if (post.status === '대기중') {
-  const rejectedIds = JSON.parse(localStorage.getItem('rejectedPosts') || '[]');
-  const alreadyRejected = rejectedIds.includes(post.id);
-
+      </div>
+    </div>
+  `;
+} else if (post.status === '대기중') {
   actionHTML = `
     <button class="accept-btn" data-id="${post.id}">승낙</button>
     <button class="reject-btn" data-id="${post.id}" ${alreadyRejected ? 'disabled' : ''}>거절 ${post.rejectCount}</button>
   `;
-    } else if (post.status === '승낙됨') {
-      actionHTML = `<span class="status-badge status-accepted">승낙됨</span>`;
-    } else if (post.status === '거절됨') {
-      actionHTML = `<span class="status-badge status-rejected">거절됨</span>`;
-    }
+} else if (post.status === '승낙됨') {
+  actionHTML = `<span class="status-badge status-accepted">승낙됨</span>`;
+} else if (post.status === '거절됨') {
+  actionHTML = `<span class="status-badge status-rejected">거절됨</span>`;
+}
 
     card.innerHTML = `
       <div class="post-info" data-id="${post.id}">

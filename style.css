@@ -393,3 +393,20 @@ body {
   background-color: white;
   color: inherit;
 }
+
+.my-post-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.edit-delete-row {
+  display: flex;
+  gap: 8px;
+}
+
+.status-pending {
+  background-color: #fef3c7;
+  color: #b45309;
+}
