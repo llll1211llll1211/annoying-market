@@ -1,0 +1,13 @@
+{
+  "name": "annoying-market-server",
+  "version": "1.0.0",
+  "description": "귀찮음 거래소 백엔드 서버",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
